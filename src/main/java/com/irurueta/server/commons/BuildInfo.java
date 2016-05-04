@@ -19,8 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author albertoirurueta
+ * Contains build data for this library.
  */
 public class BuildInfo {
     /**
