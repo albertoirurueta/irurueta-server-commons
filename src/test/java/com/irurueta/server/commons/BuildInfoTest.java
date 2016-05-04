@@ -8,6 +8,9 @@
  */
 package com.irurueta.server.commons;
 
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,13 +46,34 @@ public class BuildInfoTest {
     public void testGetters(){
         BuildInfo info = BuildInfo.getInstance();
         
-        info.getBuildNumber();
-        info.getCommit();
-        info.getBranch();
+        String buildNumber = info.getBuildNumber();
+        String commit = info.getCommit();
+        String branch = info.getBranch();
         
-        assertNotNull(info.getBuildTimestamp());
-        assertNotNull(info.getGroupId());
-        assertNotNull(info.getArtifactId());
-        assertNotNull(info.getVersion());
+        if(buildNumber != null){
+            Logger.getGlobal().log(Level.INFO, "Build number: {0}", buildNumber);
+        }
+        if(commit != null){
+            Logger.getGlobal().log(Level.INFO, "Commit: {0}", commit);
+        }
+        if(branch != null){
+            Logger.getGlobal().log(Level.INFO, "Branch: {0}", branch);
+        }
+        
+        Date buildTimestamp = info.getBuildTimestamp();
+        String groupId = info.getGroupId();
+        String artifactId = info.getArtifactId();
+        String version = info.getVersion();
+        
+        assertNotNull(buildTimestamp);
+        assertNotNull(groupId);
+        assertNotNull(artifactId);
+        assertNotNull(version);
+        
+        Logger.getGlobal().log(Level.INFO, "Build timestamp: {0}", 
+                buildTimestamp);
+        Logger.getGlobal().log(Level.INFO, "Group ID: {0}", groupId);
+        Logger.getGlobal().log(Level.INFO, "Artifact ID: {0}", artifactId);
+        Logger.getGlobal().log(Level.INFO, "Version: {0}", version);
     }
 }
