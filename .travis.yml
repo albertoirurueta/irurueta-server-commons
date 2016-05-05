@@ -3,4 +3,8 @@ sudo: false
 env:
     global:
         secure: "eceFDz53YdfEyFCy5L26C3lQNKD37KpAZbhjxEA4QYpx68Ub3FrxUOzkfWV7uogMM0c5SyyjGetkD02LhKxFsmJWvzdIb3ZkuALKC+VKJoOArXazVYbt8cn5JkP3RdIkW6+2eJ8svXmbwIm43fc5OzbDBKRnsTiOwmEwynu9ukxj4Fh5fsg7V5BvkX8K7HYGqIi7pQHgMQvEFwrd2mREBpZc3vJtHfdI9vOu+DlQavaXP73NXZbEqRMq9Q4hxunx/okp9tTM0h90yNG6pWqyaVhmS4ia/XkjnLvdpKvU2CzYv4IDU/2iPLNDqAJWyOO4FDfjXEpG/N+VJRrq0M0EIIFwBB8eCrGNx1zBKE3RzRzYoXIEnRpvMjAJDdbP0davTq+G0gCJUJn4jS2163y58i6HcJeROBShokq+v4YS5Q66/jCOPfIFQwBHsHjiLM5uV+/6hxrw52826crtdz2T2HPkpDlWZuIr0j/foaPRjgU5jOTPEF9K8dvwhNRffNjNprgPgAV639BG6LnUqAZybwje5ngRHQ51qZiP45hW3T8RBGMU3WDX8tng5REPDhqHwWeP4sQflyqjpH3r3tu1XRgMoMaJEYXbCjJWMswB/NG8yYDNg75ATyuFkgz8L7OwwlI9IevRqo67kvk1/D3xhBOMvM4E1JASJbM+9j5gYxk="
-script: travis_wait mvn clean jacoco:prepare-agent install jacoco:report site
+        environment: test
+
+#if timeout occurs, add travis_wait as in example below:
+#script: travis_wait mvn clean jacoco:prepare-agent install jacoco:report site
+script: mvn clean jacoco:prepare-agent install jacoco:report site
