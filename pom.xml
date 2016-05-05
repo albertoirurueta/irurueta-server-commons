@@ -5,7 +5,7 @@
     <artifactId>irurueta-server-commons</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <url>https://github.com/albertoirurueta/server-commons</url>
+    <url>https://github.com/albertoirurueta/irurueta-server-commons</url>
     <inceptionYear>2016</inceptionYear>
     <dependencies>
         <!-- dependencies for unit tests -->

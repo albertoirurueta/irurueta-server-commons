@@ -1,4 +1,4 @@
 # irurueta-server-commons
 Common utility classes for JEE servers
 
-[Maven Site Report](http://albertoirurueta.github.io/server-commons/)
+[Maven Site Report](http://albertoirurueta.github.io/irurueta-server-commons/)
