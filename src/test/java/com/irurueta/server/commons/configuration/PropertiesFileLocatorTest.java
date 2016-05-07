@@ -16,8 +16,17 @@
 package com.irurueta.server.commons.configuration;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Enumeration;
 import java.util.Properties;
+import java.util.Set;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -51,13 +60,13 @@ public class PropertiesFileLocatorTest {
         locator = new PropertiesFileLocator(this);
         assertNotNull(locator);
         
-        locator = new PropertiesFileLocator((ServletContext)null, this);
+        locator = new PropertiesFileLocator(null, this);
         assertNotNull(locator);
         
-        locator = new PropertiesFileLocator(this, (String)"file");
+        locator = new PropertiesFileLocator(this, "file");
         assertNotNull(locator);
         
-        locator = new PropertiesFileLocator((ServletContext)null, this, "file");
+        locator = new PropertiesFileLocator(null, this, "file");
         assertNotNull(locator);
     }
     
@@ -74,5 +83,113 @@ public class PropertiesFileLocatorTest {
         props = locator.locate();        
         assertFalse(props.isEmpty());
         assertTrue(props.containsKey("key"));
+
+        locator = new PropertiesFileLocator<>(new CustomServletContext(), this, "test.properties");
+        props = locator.locate();
+        assertFalse(props.isEmpty());
+        assertTrue(props.containsKey("key"));
+    }
+
+    private class CustomServletContext implements ServletContext{
+
+        public String getContextPath() {
+            return "context";
+        }
+
+        public ServletContext getContext(String s) {
+            return null;
+        }
+
+        public int getMajorVersion() {
+            return 0;
+        }
+
+        public int getMinorVersion() {
+            return 0;
+        }
+
+        public String getMimeType(String s) {
+            return null;
+        }
+
+        public Set getResourcePaths(String s) {
+            return null;
+        }
+
+        public URL getResource(String s) throws MalformedURLException {
+            return null;
+        }
+
+        public InputStream getResourceAsStream(String s) {
+            return null;
+        }
+
+        public RequestDispatcher getRequestDispatcher(String s) {
+            return null;
+        }
+
+        public RequestDispatcher getNamedDispatcher(String s) {
+            return null;
+        }
+
+        public Servlet getServlet(String s) throws ServletException {
+            return null;
+        }
+
+        public Enumeration getServlets() {
+            return null;
+        }
+
+        public Enumeration getServletNames() {
+            return null;
+        }
+
+        public void log(String s) {
+
+        }
+
+        public void log(Exception e, String s) {
+
+        }
+
+        public void log(String s, Throwable throwable) {
+
+        }
+
+        public String getRealPath(String s) {
+            return null;
+        }
+
+        public String getServerInfo() {
+            return null;
+        }
+
+        public String getInitParameter(String s) {
+            return null;
+        }
+
+        public Enumeration getInitParameterNames() {
+            return null;
+        }
+
+        public Object getAttribute(String s) {
+            return null;
+        }
+
+        public Enumeration getAttributeNames() {
+            return null;
+        }
+
+        public void setAttribute(String s, Object o) {
+
+        }
+
+        public void removeAttribute(String s) {
+
+        }
+
+        public String getServletContextName() {
+            return null;
+        }
     }
 }

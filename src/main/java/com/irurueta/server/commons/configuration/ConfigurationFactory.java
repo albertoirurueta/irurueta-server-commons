@@ -23,6 +23,7 @@ import java.util.Set;
 /**
  * Base factory class to obtain and configure all modules of the application.
  */
+@SuppressWarnings("WeakerAccess")
 public class ConfigurationFactory extends
         BaseConfigurationFactory<Configuration> {
 
@@ -41,7 +42,7 @@ public class ConfigurationFactory extends
      * Collection of configuration factories registered to be configured
      * when configuring from some Properties.
      */
-    private Set<ConfigurationFactory> mRegisteredFactories;
+    private Set<BaseConfigurationFactory> mRegisteredFactories;
 
     /**
      * Private constructor of this class.
@@ -72,7 +73,7 @@ public class ConfigurationFactory extends
             throws ConfigurationException {
         mProperties = properties;
         //configure all registered configuration factories
-        for (ConfigurationFactory factory : mRegisteredFactories) {
+        for (BaseConfigurationFactory factory : mRegisteredFactories) {
             factory.configure(properties);
         }
         return null;
@@ -91,7 +92,7 @@ public class ConfigurationFactory extends
      * @param factory factory to be registered.
      * @return true if factory was registered, false otherwise.
      */
-    public boolean register(ConfigurationFactory factory) {
+    public boolean register(BaseConfigurationFactory factory) {
         return factory != null && mRegisteredFactories.add(factory);
     }
     
@@ -101,7 +102,7 @@ public class ConfigurationFactory extends
      * @param factory factory to be registered.
      * @return true if factory was unregistered, false otherwise.
      */
-    public boolean unregister(ConfigurationFactory factory) {
+    public boolean unregister(BaseConfigurationFactory factory) {
         return factory != null && mRegisteredFactories.remove(factory);
     }
 
@@ -109,7 +110,7 @@ public class ConfigurationFactory extends
      * Returns non modifiable set containing registered factories.
      * @return registered factories.
      */
-    public Set<ConfigurationFactory> getRegisteredFactories() {
+    public Set<BaseConfigurationFactory> getRegisteredFactories() {
         return Collections.unmodifiableSet(mRegisteredFactories);
     }
 }
