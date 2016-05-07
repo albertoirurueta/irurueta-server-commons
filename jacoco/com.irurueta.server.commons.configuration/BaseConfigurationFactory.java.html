@@ -18,17 +18,18 @@ package com.irurueta.server.commons.configuration;
 import java.util.Properties;
 
 /**
- * Defines the interface of a configuration factory to obtain a given 
+ * Defines the interface of a configuration factory to obtain a given
  * configuration implementation based on provided properties.
  * @param &lt;E&gt; a Configuration subclass.
  */
-<span class="nc" id="L25">public abstract class BaseConfigurationFactory&lt;E extends Configuration&gt; {</span>
+@SuppressWarnings(&quot;WeakerAccess&quot;)
+<span class="nc" id="L26">public abstract class BaseConfigurationFactory&lt;E extends Configuration&gt; {</span>
 
     /**
      * Reference to configuration to be created.
      */
-<span class="nc" id="L30">    protected volatile E mConfiguration = null;</span>
-    
+    private volatile E mConfiguration;
+
     /**
      * Configures based on default configuration and returns a Configuration 
      * instance. If a configuration already exists, then it is returned and
@@ -36,21 +37,21 @@ import java.util.Properties;
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
-    public E configure() throws ConfigurationException{
-<span class="nc" id="L40">        return configure(null);</span>
+    public E configure() throws ConfigurationException {
+<span class="nc" id="L41">        return configure(null);</span>
     }
-    
+
     /**
-     * Configures based on provided properties and returns a Configuration 
+     * Configures based on provided properties and returns a Configuration
      * instance. If a configuration already exists, then it is returned and
      * configuration process is skipped.
      * @param properties properties to use for configuration.
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
-    public abstract E configure(Properties properties) 
+    public abstract E configure(Properties properties)
             throws ConfigurationException;
-    
+
     /**
      * Resets configuration by removing any existing configuration if already
      * defined.
@@ -58,38 +59,38 @@ import java.util.Properties;
      * @throws ConfigurationException if something fails during configuration
      * reset.
      */
-    public synchronized BaseConfigurationFactory&lt;E&gt; reset() 
-            throws ConfigurationException{
-<span class="nc" id="L63">        mConfiguration = null;</span>
-<span class="nc" id="L64">        return this;</span>
+    public synchronized BaseConfigurationFactory&lt;E&gt; reset()
+            throws ConfigurationException {
+<span class="nc" id="L64">        mConfiguration = null;</span>
+<span class="nc" id="L65">        return this;</span>
     }
-    
+
     /**
-     * Resets configuration and configures again using default configuration
+     * Resets configuration and configures again using default configuration.
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
-    public E reconfigure() throws ConfigurationException{
-<span class="nc" id="L73">        return reset().configure();</span>
+    public final E reconfigure() throws ConfigurationException {
+<span class="nc" id="L74">        return reset().configure();</span>
     }
-    
+
     /**
      * Resets configuration and configures again based on provided properties.
      * @param properties properties to use for configuration.
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
-    public E reconfigure(Properties properties) throws ConfigurationException{
-<span class="nc" id="L83">        return reset().configure(properties);</span>
+    public final E reconfigure(Properties properties) throws ConfigurationException {
+<span class="nc" id="L84">        return reset().configure(properties);</span>
     }
-    
+
     /**
      * Returns current configuration if it is already defined, otherwise null
      * is returned.
      * @return current configuration.
      */
-    public synchronized E getConfiguration(){
-<span class="nc" id="L92">        return mConfiguration;</span>
+    public final synchronized E getConfiguration() {
+<span class="nc" id="L93">        return mConfiguration;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

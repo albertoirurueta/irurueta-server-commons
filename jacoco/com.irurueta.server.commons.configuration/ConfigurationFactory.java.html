@@ -21,43 +21,44 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * Base factory class to obtain and configure all modules of the application
- * @author albertoirurueta
+ * Base factory class to obtain and configure all modules of the application.
  */
-public class ConfigurationFactory extends 
-        BaseConfigurationFactory&lt;Configuration&gt;{
-    
+public class ConfigurationFactory extends
+        BaseConfigurationFactory&lt;Configuration&gt; {
+
     /**
      * Singleton instance of configuration factory.
      */
-<span class="nc" id="L33">    private static ConfigurationFactory mSingleton = null; </span>
-    
+    private static ConfigurationFactory mSingleton;
+
     /**
-     * Provided properties containing all configuration properties of the 
+     * Provided properties containing all configuration properties of the
      * application.
      */
-<span class="nc" id="L39">    private Properties mProperties = null;</span>
-    
+    private Properties mProperties;
+
     /**
      * Collection of configuration factories registered to be configured
      * when configuring from some Properties.
      */
     private Set&lt;ConfigurationFactory&gt; mRegisteredFactories;
-    
+
     /**
      * Private constructor of this class.
      */
-<span class="nc" id="L50">    private ConfigurationFactory(){</span>
-<span class="nc" id="L51">        mRegisteredFactories = new HashSet&lt;ConfigurationFactory&gt;();</span>
-<span class="nc" id="L52">    }</span>
+<span class="nc" id="L49">    private ConfigurationFactory() {</span>
+<span class="nc" id="L50">        mRegisteredFactories = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L51">    }</span>
     
     /**
      * Factory method to return or create singleton instance of this class.
      * @return singleton instance of this class.
      */
-    public synchronized static ConfigurationFactory getInstance(){
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        if(mSingleton == null) mSingleton = new ConfigurationFactory();</span>
-<span class="nc" id="L60">        return mSingleton;</span>
+    public static synchronized ConfigurationFactory getInstance() {
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        if (mSingleton == null) {</span>
+<span class="nc" id="L59">            mSingleton = new ConfigurationFactory();</span>
+        }
+<span class="nc" id="L61">        return mSingleton;</span>
     }
     
     /**
@@ -68,21 +69,21 @@ public class ConfigurationFactory extends
      */
     @Override
     public Configuration configure(Properties properties) 
-            throws ConfigurationException{
-<span class="nc" id="L72">        mProperties = properties;</span>
+            throws ConfigurationException {
+<span class="nc" id="L73">        mProperties = properties;</span>
         //configure all registered configuration factories
-<span class="nc bnc" id="L74" title="All 2 branches missed.">        for(ConfigurationFactory factory : mRegisteredFactories){</span>
-<span class="nc" id="L75">            factory.configure(properties);</span>
-<span class="nc" id="L76">        }</span>
-<span class="nc" id="L77">        return null;</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        for (ConfigurationFactory factory : mRegisteredFactories) {</span>
+<span class="nc" id="L76">            factory.configure(properties);</span>
+<span class="nc" id="L77">        }</span>
+<span class="nc" id="L78">        return null;</span>
     }    
     
     /**
      * Obtains properties used during configuration.
      * @return properties used during configuration.
      */
-    public Properties getProperties(){
-<span class="nc" id="L85">        return mProperties;</span>
+    public Properties getProperties() {
+<span class="nc" id="L86">        return mProperties;</span>
     }
     
     /**
@@ -90,9 +91,8 @@ public class ConfigurationFactory extends
      * @param factory factory to be registered.
      * @return true if factory was registered, false otherwise.
      */
-    public boolean register(ConfigurationFactory factory){
-<span class="nc bnc" id="L94" title="All 2 branches missed.">        if(factory != null) return mRegisteredFactories.add(factory);</span>
-<span class="nc" id="L95">        return false;</span>
+    public boolean register(ConfigurationFactory factory) {
+<span class="nc bnc" id="L95" title="All 4 branches missed.">        return factory != null &amp;&amp; mRegisteredFactories.add(factory);</span>
     }
     
     /**
@@ -101,17 +101,16 @@ public class ConfigurationFactory extends
      * @param factory factory to be registered.
      * @return true if factory was unregistered, false otherwise.
      */
-    public boolean unregister(ConfigurationFactory factory){
-<span class="nc bnc" id="L105" title="All 2 branches missed.">        if(factory != null) return mRegisteredFactories.remove(factory);</span>
-<span class="nc" id="L106">        return false;</span>
+    public boolean unregister(ConfigurationFactory factory) {
+<span class="nc bnc" id="L105" title="All 4 branches missed.">        return factory != null &amp;&amp; mRegisteredFactories.remove(factory);</span>
     }
-    
+
     /**
      * Returns non modifiable set containing registered factories.
      * @return registered factories.
      */
-    public Set&lt;ConfigurationFactory&gt; getRegisteredFactories(){
-<span class="nc" id="L114">        return Collections.unmodifiableSet(mRegisteredFactories);</span>
+    public Set&lt;ConfigurationFactory&gt; getRegisteredFactories() {
+<span class="nc" id="L113">        return Collections.unmodifiableSet(mRegisteredFactories);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

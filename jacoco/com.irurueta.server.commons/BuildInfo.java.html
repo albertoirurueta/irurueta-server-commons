@@ -28,13 +28,14 @@ import java.util.logging.Logger;
 /**
  * Contains build data for this library.
  */
-public class BuildInfo {
+@SuppressWarnings(&quot;WeakerAccess&quot;)
+public final class BuildInfo {
     /**
      * This class logger.
      */
-<span class="fc" id="L35">    private static final Logger LOGGER = Logger.getLogger(</span>
+<span class="fc" id="L36">    private static final Logger LOGGER = Logger.getLogger(</span>
             BuildInfo.class.getName());
-    
+
     /**
      * Location of properties file that contains build data.
      * Build data is stored in this file, which is modified each time that 
@@ -46,189 +47,189 @@ public class BuildInfo {
      * Key to obtain build timestamp from properties file.
      */
     private static final String BUILD_TIMESTAMP_KEY = &quot;BUILD_TIMESTAMP&quot;;
-    
+
     /**
      * Key to obtain groupID of this library from properties file.
      */
     private static final String GROUP_ID_KEY = &quot;GROUP_ID&quot;;
-    
+
     /**
      * Key to obtain artifactId of this library from properties file.
      */
     private static final String ARTIFACT_ID_KEY = &quot;ARTIFACT_ID&quot;;
-    
+
     /**
      * Key to obtain version of this library from properties file.
      */
     private static final String VERSION_KEY = &quot;VERSION&quot;;
-    
+
     /**
      * Key to obtain build number from properties file.
      */
     private static final String BUILD_NUMBER_KEY = &quot;BUILD_NUMBER&quot;;
-    
+
     /**
      * Key to obtain build commit from properties file.
      */
     private static final String COMMIT_KEY = &quot;COMMIT&quot;;
-    
+
     /**
      * Key to obtain build branch from properties file.
      */
     private static final String BRANCH_KEY = &quot;BRANCH&quot;;
-    
+
     /**
      * Format for build timestamp.
      */
     private static final String TIMESTAMP_FORMAT = &quot;yy-MM-dd HH:mm:ss&quot;;
-    
-    /**
-     * Build timestamp.
-     */
-    private Date mBuildTimestamp;
-    
-    /**
-     * GroupId of this library.
-     */
-    private String mGroupId;
-    
-    /**
-     * ArtifactId of this library.
-     */
-    private String mArtifactId;
-    
-    /**
-     * Version of this library.
-     */
-    private String mVersion;
-    
-    /**
-     * Build number.
-     */
-    private String mBuildNumber;
-    
-    /**
-     * Build commit.
-     */
-    private String mCommit;
-    
-    /**
-     * Build branch.
-     */
-    private String mBranch;
-    
+
     /**
      * Singleton stored in a soft reference (to keep it cached in memory unless
      * memory is claimed).
      */
     private static SoftReference&lt;BuildInfo&gt; mReference;
-    
+
+    /**
+     * Build timestamp.
+     */
+    private Date mBuildTimestamp;
+
+    /**
+     * GroupId of this library.
+     */
+    private String mGroupId;
+
+    /**
+     * ArtifactId of this library.
+     */
+    private String mArtifactId;
+
+    /**
+     * Version of this library.
+     */
+    private String mVersion;
+
+    /**
+     * Build number.
+     */
+    private String mBuildNumber;
+
+    /**
+     * Build commit.
+     */
+    private String mCommit;
+
+    /**
+     * Build branch.
+     */
+    private String mBranch;
+
     /**
      * Constructor.
      */
-<span class="fc" id="L129">    private BuildInfo(){</span>
+<span class="fc" id="L130">    private BuildInfo() {</span>
         //loads properties file data
-<span class="fc" id="L131">        InputStream stream = null;</span>
-        try{
-<span class="fc" id="L133">            stream = BuildInfo.class.getResourceAsStream(BUILD_INFO_PROPERTIES);</span>
-            
-<span class="fc" id="L135">            Properties props = new Properties();</span>
-<span class="fc" id="L136">            props.load(stream);</span>
-            
-<span class="fc" id="L138">            String buildTimestampString = props.getProperty(</span>
+<span class="fc" id="L132">        InputStream stream = null;</span>
+        try {
+<span class="fc" id="L134">            stream = BuildInfo.class.getResourceAsStream(BUILD_INFO_PROPERTIES);</span>
+
+<span class="fc" id="L136">            Properties props = new Properties();</span>
+<span class="fc" id="L137">            props.load(stream);</span>
+
+<span class="fc" id="L139">            String buildTimestampString = props.getProperty(</span>
                     BUILD_TIMESTAMP_KEY);
-<span class="fc" id="L140">            SimpleDateFormat format = new SimpleDateFormat(TIMESTAMP_FORMAT, </span>
+<span class="fc" id="L141">            SimpleDateFormat format = new SimpleDateFormat(TIMESTAMP_FORMAT, </span>
                     Locale.ENGLISH);
-<span class="fc" id="L142">            mBuildTimestamp = format.parse(buildTimestampString);</span>
-            
-<span class="fc" id="L144">            mGroupId = props.getProperty(GROUP_ID_KEY);</span>
-<span class="fc" id="L145">            mArtifactId = props.getProperty(ARTIFACT_ID_KEY);</span>
-<span class="fc" id="L146">            mVersion = props.getProperty(VERSION_KEY);</span>
-<span class="fc" id="L147">            mBuildNumber = props.getProperty(BUILD_NUMBER_KEY);</span>
-<span class="fc" id="L148">            mCommit = props.getProperty(COMMIT_KEY);</span>
-<span class="fc" id="L149">            mBranch = props.getProperty(BRANCH_KEY);</span>
-<span class="nc" id="L150">        }catch(Exception e){</span>
-<span class="nc" id="L151">            LOGGER.log(Level.WARNING, &quot;Failed to load build info&quot;, e);</span>
-        }finally{
-<span class="pc bpc" id="L153" title="5 of 6 branches missed.">            if(stream != null){</span>
-                try{
-<span class="pc" id="L155">                    stream.close();</span>
-<span class="nc" id="L156">                }catch(IOException ignore){</span>
-<span class="nc" id="L157">                    LOGGER.log(Level.WARNING, &quot;Could not properly close stream&quot;,</span>
+<span class="fc" id="L143">            mBuildTimestamp = format.parse(buildTimestampString);</span>
+
+<span class="fc" id="L145">            mGroupId = props.getProperty(GROUP_ID_KEY);</span>
+<span class="fc" id="L146">            mArtifactId = props.getProperty(ARTIFACT_ID_KEY);</span>
+<span class="fc" id="L147">            mVersion = props.getProperty(VERSION_KEY);</span>
+<span class="fc" id="L148">            mBuildNumber = props.getProperty(BUILD_NUMBER_KEY);</span>
+<span class="fc" id="L149">            mCommit = props.getProperty(COMMIT_KEY);</span>
+<span class="fc" id="L150">            mBranch = props.getProperty(BRANCH_KEY);</span>
+<span class="nc" id="L151">        } catch (Exception e) {</span>
+<span class="nc" id="L152">            LOGGER.log(Level.WARNING, &quot;Failed to load build info&quot;, e);</span>
+        } finally {
+<span class="pc bpc" id="L154" title="5 of 6 branches missed.">            if (stream != null) {</span>
+                try {
+<span class="pc" id="L156">                    stream.close();</span>
+<span class="nc" id="L157">                } catch (IOException ignore) {</span>
+<span class="nc" id="L158">                    LOGGER.log(Level.WARNING, &quot;Could not properly close stream&quot;,</span>
                             ignore);
-<span class="pc" id="L159">                }</span>
+<span class="pc" id="L160">                }</span>
             }
         }
-<span class="fc" id="L162">    }</span>
-    
+<span class="fc" id="L163">    }</span>
+
     /**
      * Obtains singleton instance.
      * @return singleton instance.
      */
-    public synchronized static BuildInfo getInstance(){
-<span class="fc" id="L169">        BuildInfo info = null;</span>
-<span class="pc bpc" id="L170" title="1 of 4 branches missed.">        if(mReference == null || (info = mReference.get()) == null){</span>
-<span class="fc" id="L171">            info = new BuildInfo();</span>
-<span class="fc" id="L172">            mReference = new SoftReference&lt;&gt;(info);</span>
+    public static synchronized BuildInfo getInstance() {
+        BuildInfo info;
+<span class="pc bpc" id="L171" title="1 of 4 branches missed.">        if (mReference == null || (info = mReference.get()) == null) {</span>
+<span class="fc" id="L172">            info = new BuildInfo();</span>
+<span class="fc" id="L173">            mReference = new SoftReference&lt;&gt;(info);</span>
         }
-        
-<span class="fc" id="L175">        return info;</span>
+
+<span class="fc" id="L176">        return info;</span>
     }
-    
+
     /**
      * Obtains build timestamp.
      * @return build timestamp.
      */
-    public Date getBuildTimestamp(){        
-<span class="fc" id="L183">        return (Date)mBuildTimestamp.clone();</span>
+    public Date getBuildTimestamp() {
+<span class="fc" id="L184">        return (Date)mBuildTimestamp.clone();</span>
     }
 
     /**
      * Obtains groupId of this library.
      * @return groupId of this library.
      */
-    public String getGroupId(){
-<span class="fc" id="L191">        return mGroupId;</span>
+    public String getGroupId() {
+<span class="fc" id="L192">        return mGroupId;</span>
     }
 
     /**
      * Obtains artifactId of this library.
      * @return artifactId of this library.
      */
-    public String getArtifactId(){
-<span class="fc" id="L199">        return mArtifactId;</span>
+    public String getArtifactId() {
+<span class="fc" id="L200">        return mArtifactId;</span>
     }
 
     /**
      * Obtains version of this library.
      * @return version of this library.
      */
-    public String getVersion(){
-<span class="fc" id="L207">        return mVersion;</span>
+    public String getVersion() {
+<span class="fc" id="L208">        return mVersion;</span>
     }
 
     /**
      * Obtains build number.
      * @return build number.
      */
-    public String getBuildNumber(){
-<span class="fc" id="L215">        return mBuildNumber;</span>
+    public String getBuildNumber() {
+<span class="fc" id="L216">        return mBuildNumber;</span>
     }
 
     /**
      * Obtains build commit.
      * @return build commit.
      */
-    public String getCommit(){
-<span class="fc" id="L223">        return mCommit;</span>
+    public String getCommit() {
+<span class="fc" id="L224">        return mCommit;</span>
     }
 
     /**
      * Obtains build branch.
      * @return build branch.
      */
-    public String getBranch(){
-<span class="fc" id="L231">        return mBranch;</span>
+    public String getBranch() {
+<span class="fc" id="L232">        return mBranch;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
