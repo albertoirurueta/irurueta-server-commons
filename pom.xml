@@ -5,8 +5,28 @@
     <artifactId>irurueta-server-commons</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Common utility classes for JEE servers</description>
     <url>https://github.com/albertoirurueta/irurueta-server-commons</url>
     <inceptionYear>2016</inceptionYear>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>    
+    <developers>
+        <developer>
+            <name>Alberto Irurueta Carro</name>
+            <email>alberto@irurueta.com</email>
+            <organizationUrl>https://github.com/albertoirurueta</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git@github.com:albertoirurueta/irurueta-server-commons.git</connection>
+        <developerConnection>scm:git@github.com:albertoirurueta/irurueta-server-commons.git</developerConnection>
+        <url>git@github.com:albertoirurueta/irurueta-server-commons.git</url>
+    </scm>
     <dependencies>
         <!-- dependencies for unit tests -->
         <dependency>
@@ -22,6 +42,7 @@
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
+        <!-- other dependencies -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -31,8 +52,8 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <github.global.server>github</github.global.server>
         <github.global.oauth2Token>${env.GITHUB_OAUTH_TOKEN}</github.global.oauth2Token>
     </properties>
@@ -224,6 +245,7 @@
                     </properties>
                     <excludes>
                         <exclude>**/README</exclude>
+                        <exclude>**/*.txt</exclude>
                         <exclude>**/*.xml</exclude>
                         <exclude>**/*.properties</exclude>
                         <exclude>src/test/resources/**</exclude>

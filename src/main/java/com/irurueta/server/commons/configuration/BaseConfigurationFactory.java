@@ -28,7 +28,7 @@ public abstract class BaseConfigurationFactory<E extends Configuration> {
     /**
      * Reference to configuration to be created.
      */
-    private volatile E mConfiguration;
+    protected volatile E mConfiguration;
 
     /**
      * Configures based on default configuration and returns a Configuration 
