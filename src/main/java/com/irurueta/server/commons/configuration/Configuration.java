@@ -13,8 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.irurueta.server.commons.configuration;
+
+import java.util.Properties;
 
 /**
- * This package is the base package for all common server classes.
+ * Interface defining a Configuration instance.
  */
-package com.irurueta.server.commons;
+public interface Configuration {
+    /**
+     * Reads configuration from properties.
+     * @param properties properties containing key/value configuration.
+     * @throws ConfigurationException if properties contains invalid values.
+     */
+    void fromProperties(Properties properties) 
+            throws ConfigurationException;
+    
+    /**
+     * Converts a configuration instance into properties.
+     * @return properties.
+     */
+    Properties toProperties();
+}

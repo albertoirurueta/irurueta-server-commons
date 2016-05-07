@@ -15,6 +15,13 @@
  */
 
 /**
- * This package is the base package for all common server classes.
+ * This package contains base classes related to reading system configuration.
+ * The basic usage of configuration consists of a ConfigurationFactory that
+ * reads configuration from properties or generates a default one, and an 
+ * immutable configuration instance that contains configuration parameters.
+ * Classes of this package are mostly abstract and are intended to be used as
+ * a way to configure other packages.
+ * Generally other packages will have other configuration factories that can be
+ * used to configure classes for that package only.
  */
-package com.irurueta.server.commons;
+package com.irurueta.server.commons.configuration;

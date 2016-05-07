@@ -13,14 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * @file
- * This file contains unit tests for
- * com.irurueta.server.commons.BuildInfo
- * 
- * @author Alberto Irurueta (alberto@irurueta.com)
- * @date December 12, 2015
- */
 package com.irurueta.server.commons;
 
 import java.util.Date;

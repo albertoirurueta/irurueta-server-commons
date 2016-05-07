@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.irurueta.server.commons;
+package com.irurueta.server.commons.configuration;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -22,40 +22,35 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class CommonsExceptionTest {
+public class ConfigurationExceptionTest {
     
-    public CommonsExceptionTest() {
-    }
+    public ConfigurationExceptionTest() {}
     
     @BeforeClass
-    public static void setUpClass() {
-    }
+    public static void setUpClass() {}
     
     @AfterClass
-    public static void tearDownClass() {
-    }
+    public static void tearDownClass() {}
     
     @Before
-    public void setUp() {
-    }
+    public void setUp() {}
     
     @After
-    public void tearDown() {
-    }
+    public void tearDown() {}
     
     @Test
     public void testConstructor(){
-        CommonsException ex;
-        assertNotNull(ex = new CommonsException());
+        ConfigurationException ex;
+        assertNotNull(ex = new ConfigurationException());
         
         ex = null;
-        assertNotNull(ex = new CommonsException("message"));
+        assertNotNull(ex = new ConfigurationException("message"));
         
         ex = null;
-        assertNotNull(ex = new CommonsException(new Exception()));
+        assertNotNull(ex = new ConfigurationException(new Exception()));
         
         ex = null;
-        assertNotNull(ex = new CommonsException("message", 
+        assertNotNull(ex = new ConfigurationException("message", 
                 new Exception()));        
-    }    
+    }
 }
