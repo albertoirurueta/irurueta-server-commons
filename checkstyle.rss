@@ -19,9 +19,9 @@ under the License.
 -->
 <rss version="0.91">
   <channel>
-    <title>irurueta-server-commons - Checkstyle report</title>
+    <title>com.irurueta:irurueta-server-commons - Checkstyle report</title>
     <link>https://github.com/albertoirurueta/irurueta-server-commons</link>
-    <description>irurueta-server-commons - Checkstyle report</description>
+    <description>com.irurueta:irurueta-server-commons - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>

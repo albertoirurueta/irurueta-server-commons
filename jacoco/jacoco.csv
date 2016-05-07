@@ -1,8 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-irurueta-server-commons,com.irurueta.server.commons.configuration,PropertiesFileLocator,21,159,5,11,4,50,5,11,0,8
-irurueta-server-commons,com.irurueta.server.commons.configuration,ConfigurationFactory,2,64,4,8,0,15,4,9,0,7
-irurueta-server-commons,com.irurueta.server.commons.configuration,BaseConfigurationFactory,0,24,0,0,0,7,0,6,0,6
-irurueta-server-commons,com.irurueta.server.commons.configuration,ConfigurationException,0,16,0,0,0,8,0,4,0,4
-irurueta-server-commons,com.irurueta.server.commons,CommonsException,0,16,0,0,0,8,0,4,0,4
-irurueta-server-commons,com.irurueta.server.commons,LockedException,0,16,0,0,0,8,0,4,0,4
-irurueta-server-commons,com.irurueta.server.commons,BuildInfo,39,113,6,4,4,30,4,11,0,10
+com.irurueta:irurueta-server-commons,com.irurueta.server.commons.configuration,PropertiesFileLocator,21,159,5,11,4,50,5,11,0,8
+com.irurueta:irurueta-server-commons,com.irurueta.server.commons.configuration,ConfigurationFactory,2,64,4,8,0,15,4,9,0,7
+com.irurueta:irurueta-server-commons,com.irurueta.server.commons.configuration,BaseConfigurationFactory,0,24,0,0,0,7,0,6,0,6
+com.irurueta:irurueta-server-commons,com.irurueta.server.commons.configuration,ConfigurationException,0,16,0,0,0,8,0,4,0,4
+com.irurueta:irurueta-server-commons,com.irurueta.server.commons,CommonsException,0,16,0,0,0,8,0,4,0,4
+com.irurueta:irurueta-server-commons,com.irurueta.server.commons,LockedException,0,16,0,0,0,8,0,4,0,4
+com.irurueta:irurueta-server-commons,com.irurueta.server.commons,BuildInfo,39,113,6,4,4,30,4,11,0,10
