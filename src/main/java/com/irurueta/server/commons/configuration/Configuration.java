@@ -20,15 +20,16 @@ import java.util.Properties;
 /**
  * Interface defining a Configuration instance.
  */
+@SuppressWarnings("WeakerAccess")
 public interface Configuration {
     /**
      * Reads configuration from properties.
      * @param properties properties containing key/value configuration.
      * @throws ConfigurationException if properties contains invalid values.
      */
-    void fromProperties(Properties properties) 
+    void fromProperties(Properties properties)
             throws ConfigurationException;
-    
+
     /**
      * Converts a configuration instance into properties.
      * @return properties.

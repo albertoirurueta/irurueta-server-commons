@@ -16,39 +16,40 @@
 package com.irurueta.server.commons;
 
 /**
- * Raised when a given object instance is locked and operations to modify it 
+ * Raised when a given object instance is locked and operations to modify it
  * cannot be made at a given time.
  */
-public class LockedException extends CommonsException{
+@SuppressWarnings("WeakerAccess")
+public class LockedException extends CommonsException {
     /**
-     * Constructor
+     * Constructor.
      */
-    public LockedException(){
+    public LockedException() {
         super();
     }
 
     /**
-     * Constructor with String containing message
-     * @param message Message indicating the cause of the exception
+     * Constructor with String containing message.
+     * @param message Message indicating the cause of the exception.
      */
-    public LockedException(String message){
+    public LockedException(String message) {
         super(message);
     }
 
     /**
-     * Constructor with message and cause
-     * @param message Message describing the cause of the exception
-     * @param cause Instance containing the cause of the exception
+     * Constructor with message and cause.
+     * @param message Message describing the cause of the exception.
+     * @param cause Instance containing the cause of the exception.
      */
-    public LockedException(String message, Throwable cause){
+    public LockedException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * Constructor with cause
-     * @param cause Instance containing the cause of the exception
+     * Constructor with cause.
+     * @param cause Instance containing the cause of the exception.
      */
-    public LockedException(Throwable cause){
+    public LockedException(Throwable cause) {
         super(cause);
     }                    
 }

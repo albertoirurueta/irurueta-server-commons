@@ -17,7 +17,7 @@
 /**
  * This package contains base classes related to reading system configuration.
  * The basic usage of configuration consists of a ConfigurationFactory that
- * reads configuration from properties or generates a default one, and an 
+ * reads configuration from properties or generates a default one, and an
  * immutable configuration instance that contains configuration parameters.
  * Classes of this package are mostly abstract and are intended to be used as
  * a way to configure other packages.

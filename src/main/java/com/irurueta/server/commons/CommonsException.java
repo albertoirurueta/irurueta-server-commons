@@ -19,36 +19,37 @@ package com.irurueta.server.commons;
  * Base exception class for this package.
  * All exceptions in this package extends from this one.
  */
-public class CommonsException extends Exception{
+@SuppressWarnings("WeakerAccess")
+public class CommonsException extends Exception {
     /**
-     * Constructor
+     * Constructor.
      */
-    public CommonsException(){
+    public CommonsException() {
         super();
     }
 
     /**
-     * Constructor with String containing message
-     * @param message Message indicating the cause of the exception
+     * Constructor with String containing message.
+     * @param message Message indicating the cause of the exception.
      */
-    public CommonsException(String message){
+    public CommonsException(String message) {
         super(message);
     }
 
     /**
-     * Constructor with message and cause
-     * @param message Message describing the cause of the exception
-     * @param cause Instance containing the cause of the exception
+     * Constructor with message and cause.
+     * @param message Message describing the cause of the exception.
+     * @param cause Instance containing the cause of the exception.
      */
-    public CommonsException(String message, Throwable cause){
+    public CommonsException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * Constructor with cause
-     * @param cause Instance containing the cause of the exception
+     * Constructor with cause.
+     * @param cause Instance containing the cause of the exception.
      */
-    public CommonsException(Throwable cause){
+    public CommonsException(Throwable cause) {
         super(cause);
     }                    
 }

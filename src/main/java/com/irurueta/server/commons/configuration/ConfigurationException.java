@@ -18,20 +18,21 @@ package com.irurueta.server.commons.configuration;
 /**
  * Raised if something fails during configuration process.
  */
-public class ConfigurationException extends Exception{
+@SuppressWarnings("WeakerAccess")
+public class ConfigurationException extends Exception {
 
     /**
      * Constructor.
      */
-    public ConfigurationException(){
+    public ConfigurationException() {
         super();
     }
 
     /**
      * Constructor with String containing message.
      * @param message Message indicating the cause of the exception.
-     */    
-    public ConfigurationException(String message){
+     */
+    public ConfigurationException(String message) {
         super(message);
     }
 
@@ -39,8 +40,8 @@ public class ConfigurationException extends Exception{
      * Constructor with message and cause.
      * @param message Message describing the cause of the exception.
      * @param cause Instance containing the cause of the exception.
-     */    
-    public ConfigurationException(String message, Throwable cause){
+     */
+    public ConfigurationException(String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -48,7 +49,7 @@ public class ConfigurationException extends Exception{
      * Constructor with cause.
      * @param cause Instance containing the cause of the exception.
      */    
-    public ConfigurationException(Throwable cause){
+    public ConfigurationException(Throwable cause) {
         super(cause);
-    }            
+    }
 }

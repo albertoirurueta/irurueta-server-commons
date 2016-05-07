@@ -28,13 +28,14 @@ import java.util.logging.Logger;
 /**
  * Contains build data for this library.
  */
-public class BuildInfo {
+@SuppressWarnings("WeakerAccess")
+public final class BuildInfo {
     /**
      * This class logger.
      */
     private static final Logger LOGGER = Logger.getLogger(
             BuildInfo.class.getName());
-    
+
     /**
      * Location of properties file that contains build data.
      * Build data is stored in this file, which is modified each time that 
@@ -46,140 +47,140 @@ public class BuildInfo {
      * Key to obtain build timestamp from properties file.
      */
     private static final String BUILD_TIMESTAMP_KEY = "BUILD_TIMESTAMP";
-    
+
     /**
      * Key to obtain groupID of this library from properties file.
      */
     private static final String GROUP_ID_KEY = "GROUP_ID";
-    
+
     /**
      * Key to obtain artifactId of this library from properties file.
      */
     private static final String ARTIFACT_ID_KEY = "ARTIFACT_ID";
-    
+
     /**
      * Key to obtain version of this library from properties file.
      */
     private static final String VERSION_KEY = "VERSION";
-    
+
     /**
      * Key to obtain build number from properties file.
      */
     private static final String BUILD_NUMBER_KEY = "BUILD_NUMBER";
-    
+
     /**
      * Key to obtain build commit from properties file.
      */
     private static final String COMMIT_KEY = "COMMIT";
-    
+
     /**
      * Key to obtain build branch from properties file.
      */
     private static final String BRANCH_KEY = "BRANCH";
-    
+
     /**
      * Format for build timestamp.
      */
     private static final String TIMESTAMP_FORMAT = "yy-MM-dd HH:mm:ss";
-    
-    /**
-     * Build timestamp.
-     */
-    private Date mBuildTimestamp;
-    
-    /**
-     * GroupId of this library.
-     */
-    private String mGroupId;
-    
-    /**
-     * ArtifactId of this library.
-     */
-    private String mArtifactId;
-    
-    /**
-     * Version of this library.
-     */
-    private String mVersion;
-    
-    /**
-     * Build number.
-     */
-    private String mBuildNumber;
-    
-    /**
-     * Build commit.
-     */
-    private String mCommit;
-    
-    /**
-     * Build branch.
-     */
-    private String mBranch;
-    
+
     /**
      * Singleton stored in a soft reference (to keep it cached in memory unless
      * memory is claimed).
      */
     private static SoftReference<BuildInfo> mReference;
-    
+
+    /**
+     * Build timestamp.
+     */
+    private Date mBuildTimestamp;
+
+    /**
+     * GroupId of this library.
+     */
+    private String mGroupId;
+
+    /**
+     * ArtifactId of this library.
+     */
+    private String mArtifactId;
+
+    /**
+     * Version of this library.
+     */
+    private String mVersion;
+
+    /**
+     * Build number.
+     */
+    private String mBuildNumber;
+
+    /**
+     * Build commit.
+     */
+    private String mCommit;
+
+    /**
+     * Build branch.
+     */
+    private String mBranch;
+
     /**
      * Constructor.
      */
-    private BuildInfo(){
+    private BuildInfo() {
         //loads properties file data
         InputStream stream = null;
-        try{
+        try {
             stream = BuildInfo.class.getResourceAsStream(BUILD_INFO_PROPERTIES);
-            
+
             Properties props = new Properties();
             props.load(stream);
-            
+
             String buildTimestampString = props.getProperty(
                     BUILD_TIMESTAMP_KEY);
             SimpleDateFormat format = new SimpleDateFormat(TIMESTAMP_FORMAT, 
                     Locale.ENGLISH);
             mBuildTimestamp = format.parse(buildTimestampString);
-            
+
             mGroupId = props.getProperty(GROUP_ID_KEY);
             mArtifactId = props.getProperty(ARTIFACT_ID_KEY);
             mVersion = props.getProperty(VERSION_KEY);
             mBuildNumber = props.getProperty(BUILD_NUMBER_KEY);
             mCommit = props.getProperty(COMMIT_KEY);
             mBranch = props.getProperty(BRANCH_KEY);
-        }catch(Exception e){
+        } catch (Exception e) {
             LOGGER.log(Level.WARNING, "Failed to load build info", e);
-        }finally{
-            if(stream != null){
-                try{
+        } finally {
+            if (stream != null) {
+                try {
                     stream.close();
-                }catch(IOException ignore){
+                } catch (IOException ignore) {
                     LOGGER.log(Level.WARNING, "Could not properly close stream",
                             ignore);
                 }
             }
         }
     }
-    
+
     /**
      * Obtains singleton instance.
      * @return singleton instance.
      */
-    public synchronized static BuildInfo getInstance(){
-        BuildInfo info = null;
-        if(mReference == null || (info = mReference.get()) == null){
+    public static synchronized BuildInfo getInstance() {
+        BuildInfo info;
+        if (mReference == null || (info = mReference.get()) == null) {
             info = new BuildInfo();
             mReference = new SoftReference<>(info);
         }
-        
+
         return info;
     }
-    
+
     /**
      * Obtains build timestamp.
      * @return build timestamp.
      */
-    public Date getBuildTimestamp(){        
+    public Date getBuildTimestamp() {
         return (Date)mBuildTimestamp.clone();
     }
 
@@ -187,7 +188,7 @@ public class BuildInfo {
      * Obtains groupId of this library.
      * @return groupId of this library.
      */
-    public String getGroupId(){
+    public String getGroupId() {
         return mGroupId;
     }
 
@@ -195,7 +196,7 @@ public class BuildInfo {
      * Obtains artifactId of this library.
      * @return artifactId of this library.
      */
-    public String getArtifactId(){
+    public String getArtifactId() {
         return mArtifactId;
     }
 
@@ -203,7 +204,7 @@ public class BuildInfo {
      * Obtains version of this library.
      * @return version of this library.
      */
-    public String getVersion(){
+    public String getVersion() {
         return mVersion;
     }
 
@@ -211,7 +212,7 @@ public class BuildInfo {
      * Obtains build number.
      * @return build number.
      */
-    public String getBuildNumber(){
+    public String getBuildNumber() {
         return mBuildNumber;
     }
 
@@ -219,7 +220,7 @@ public class BuildInfo {
      * Obtains build commit.
      * @return build commit.
      */
-    public String getCommit(){
+    public String getCommit() {
         return mCommit;
     }
 
@@ -227,7 +228,7 @@ public class BuildInfo {
      * Obtains build branch.
      * @return build branch.
      */
-    public String getBranch(){
+    public String getBranch() {
         return mBranch;
     }
 }
