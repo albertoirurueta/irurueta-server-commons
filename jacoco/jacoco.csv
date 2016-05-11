@@ -3,6 +3,6 @@ com.irurueta:irurueta-server-commons,com.irurueta.server.commons.configuration,P
 com.irurueta:irurueta-server-commons,com.irurueta.server.commons.configuration,ConfigurationFactory,2,64,4,8,0,15,4,9,0,7
 com.irurueta:irurueta-server-commons,com.irurueta.server.commons.configuration,BaseConfigurationFactory,0,24,0,0,0,7,0,6,0,6
 com.irurueta:irurueta-server-commons,com.irurueta.server.commons.configuration,ConfigurationException,0,16,0,0,0,8,0,4,0,4
-com.irurueta:irurueta-server-commons,com.irurueta.server.commons,CommonsException,0,16,0,0,0,8,0,4,0,4
 com.irurueta:irurueta-server-commons,com.irurueta.server.commons,LockedException,0,16,0,0,0,8,0,4,0,4
 com.irurueta:irurueta-server-commons,com.irurueta.server.commons,BuildInfo,39,113,6,4,4,30,4,11,0,10
+com.irurueta:irurueta-server-commons,com.irurueta.server.commons,ServerCommonsException,0,16,0,0,0,8,0,4,0,4

@@ -88,20 +88,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/albertoirurueta/irurueta-server-commons/checkstyle.html#com.irurueta.server.commons.CommonsException.java">com/irurueta/server/commons/CommonsException.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/albertoirurueta/irurueta-server-commons/checkstyle.html#com.irurueta.server.commons.configuration.Configuration.java">com/irurueta/server/commons/configuration/Configuration.java</a>
                 </td>
                 <td>
@@ -145,6 +131,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="https://github.com/albertoirurueta/irurueta-server-commons/checkstyle.html#com.irurueta.server.commons.configuration.ConfigurationException.java">com/irurueta/server/commons/configuration/ConfigurationException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/albertoirurueta/irurueta-server-commons/checkstyle.html#com.irurueta.server.commons.ServerCommonsException.java">com/irurueta/server/commons/ServerCommonsException.java</a>
                 </td>
                 <td>
                   0
