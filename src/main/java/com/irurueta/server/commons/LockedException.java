@@ -20,7 +20,7 @@ package com.irurueta.server.commons;
  * cannot be made at a given time.
  */
 @SuppressWarnings("WeakerAccess")
-public class LockedException extends CommonsException {
+public class LockedException extends ServerCommonsException {
     /**
      * Constructor.
      */

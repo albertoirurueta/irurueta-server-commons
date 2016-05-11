@@ -22,9 +22,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class CommonsExceptionTest {
+public class ServerCommonsExceptionTest {
     
-    public CommonsExceptionTest() {
+    public ServerCommonsExceptionTest() {
     }
     
     @BeforeClass
@@ -45,17 +45,17 @@ public class CommonsExceptionTest {
     
     @Test
     public void testConstructor(){
-        CommonsException ex;
-        assertNotNull(ex = new CommonsException());
+        ServerCommonsException ex;
+        assertNotNull(ex = new ServerCommonsException());
         
         ex = null;
-        assertNotNull(ex = new CommonsException("message"));
+        assertNotNull(ex = new ServerCommonsException("message"));
         
         ex = null;
-        assertNotNull(ex = new CommonsException(new Exception()));
+        assertNotNull(ex = new ServerCommonsException(new Exception()));
         
         ex = null;
-        assertNotNull(ex = new CommonsException("message", 
+        assertNotNull(ex = new ServerCommonsException("message", 
                 new Exception()));        
     }    
 }
