@@ -316,6 +316,7 @@
                         <exclude>**/*.txt</exclude>
                         <exclude>**/*.xml</exclude>
                         <exclude>**/*.properties</exclude>
+                        <exclude>cd/**</exclude>
                         <exclude>src/test/resources/**</exclude>
                         <exclude>src/main/resources/**</exclude>
                     </excludes>
