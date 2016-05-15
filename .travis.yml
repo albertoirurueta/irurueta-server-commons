@@ -2,12 +2,30 @@ language: java
 sudo: false
 env:
     global:
-      #key for github
+        #key for github
         - secure: "eceFDz53YdfEyFCy5L26C3lQNKD37KpAZbhjxEA4QYpx68Ub3FrxUOzkfWV7uogMM0c5SyyjGetkD02LhKxFsmJWvzdIb3ZkuALKC+VKJoOArXazVYbt8cn5JkP3RdIkW6+2eJ8svXmbwIm43fc5OzbDBKRnsTiOwmEwynu9ukxj4Fh5fsg7V5BvkX8K7HYGqIi7pQHgMQvEFwrd2mREBpZc3vJtHfdI9vOu+DlQavaXP73NXZbEqRMq9Q4hxunx/okp9tTM0h90yNG6pWqyaVhmS4ia/XkjnLvdpKvU2CzYv4IDU/2iPLNDqAJWyOO4FDfjXEpG/N+VJRrq0M0EIIFwBB8eCrGNx1zBKE3RzRzYoXIEnRpvMjAJDdbP0davTq+G0gCJUJn4jS2163y58i6HcJeROBShokq+v4YS5Q66/jCOPfIFQwBHsHjiLM5uV+/6hxrw52826crtdz2T2HPkpDlWZuIr0j/foaPRjgU5jOTPEF9K8dvwhNRffNjNprgPgAV639BG6LnUqAZybwje5ngRHQ51qZiP45hW3T8RBGMU3WDX8tng5REPDhqHwWeP4sQflyqjpH3r3tu1XRgMoMaJEYXbCjJWMswB/NG8yYDNg75ATyuFkgz8L7OwwlI9IevRqo67kvk1/D3xhBOMvM4E1JASJbM+9j5gYxk="
         - environment=test
+        #sonatype credentials
+        #OSSRH_JIRA_USERNAME
+        - secure: "EedCPUamYQvIrKsPCCfHItFOlYe/ymKx5Bena3lj+BtF9Y53zkZIQbxyiabRFCsCpKNcY+iBKI0ryIOhnwzCgs4lJKHQ8lnnTnlqo3g3B7FIewwPiZpRJiTcbGFZhhQA1H8wXVAsNTfa0Y4i3yowdbYbYKTzOREPXb+J7s4IFEcgiheGJAbxG5fNsLMOqirq+HsrTU87R27cCBuYuzNtVjKqrDMSqRdSCB1m1JMufJKM8/ugPUqaP+28YznARiFnU34c3jn0mcrg3c2CRKnyaHV/ymfwgXwrefeJWkjtwu3nv+3qfL4PIUb5tzJ34Jd+Swj6vQGN5wB4n7TNPyuhCkoUpvQwNp39QyIdT82+z7u7hQ/2PgCZJlcffhPlrxU9Wqz1PxN2Kvos2lavGB1HkDiCKjl/X+FkHJ8G/9hiZXPCSmbLCUZtB6KJ2hwWNDDnjXl5PTRneiYdmXqWOaNkzRCwwstESnU/bRAnD7Q/CKm7YZ8Rv4GYEdZLgNGJ44R69wd0ftzrP4Vocc1IO19QQgPiSyxp8ch+JH6zO12DBq/R2aZ/IhTYBhG5NvRlRKJqvWWCmQvarp5p/zG8z5k/WH/KW3/MM7EdXPOpTO23KY5BXz0sBIfn87DafZZRCxtoMI/TyiV/BaYhh67UjPha/irxGdB9mMjLtaNccQsUeIs="
+        #OSSRH_JIRA_PASSWORD
+        - secure: "CbLcei3EaVkugRc7kwZ84+xQTmHQLqIl25ol9jdiRmSzlb7VRjnv9NLq5xOWmCLcKXVEdHjGOC/xQ7NPB8ds2Ff8bmsHFhcDzeMLrieiGrriMZ10bcXN/UnU9+3NHl98Lk6woz94PVpva3gBExTsIMeSckDt/h9bvGYBcP0wiFoSptmarIaNzOApU0vT3kF5/WorQFb7ay0pM3fzzOdCAF7tzBmC7Zr9z30DFMgCWKhY53i5XsYlC60wAO1T+wuJVh/FtNZCREZHvEVD3thI5A7zTSHOoDu/NHLzgMyoAHRumc37AjIYe9UH8doCH2OCjFlDVQJsNWi+oyR24PuHv4P3CIXIy7dSi/x6xD/+EE9E6j0hWe8zm17c9ApqQ0nfQbXRLqQBXKhUh763Ck8ZQv+qlEjgBomEqNVVeIWJ/wFNPbImxlVZpK32WoXcMZOjvnSiTIYaS6lkve9tb4hZt+fzGqq8QsdJsw/RVowkpFOLS1mFLpsd07llEuKSqEKajeDdzx3nwDXnhz6rjChV4IlzVbR+MeAMAul+ujB+CAtPqJdLB3DMsFC/EkSVDg2KCXGO+7S6BoOmddTNnVbZKBFF3p5GHv9wLPxZS952/X0B2+l19RWxqB3sBHyMobUY37215rCzJyeMKImiBT+SNbT+2zpdLkS6p2+ZMTdfnP4="
+        #signing key
+        #GPG_KEY_NAME
+        - secure: "BKImep1vFCPdtxfgCdkK9tZqDQ9+xa6QVexuIM4UFznXjbWFOpAdxK0v2ehJNPlzVh0yubabc+UM7taqxig3gPY/3omRxIbswS9cq7mVBq6ThV5dkbsM5IQC4C2ufQ8oNVJ8aYwSGOI+0AaANRJRy1ndZDoK212t6x6UE4tbsqPWKyRvvmH5VpZKgvb63HzY+6VfiabPVjDuHqq6zwWVgxpBCzuwhIK+f/yuf2Ul6LXBavNFvBi45ACl+55C551+050rSOW1kQpH2Mx9DIh3D1MmgKPOL9rKx+0RuvZsCYi7oInprKfvfEeyyzLwBOiefQW3b+WeVCr9SExZ1W0286+cIQrT4NfWsg4ahe1F2le/4RDNT70zjkZCTwKvrX7kFbk4CJjMExTsT6fIBC5bAUJBw8DLvQmiKtyXR5m6R09MO1i6ZLr2/dz//xnAbvZDme7kOUzt3qLvPJvIXeVSlTSZxITfbRLkMTmdKDPHTe7i67y0HVMD+S3jHxY0NOy96rHfo84Z19dSt8qC3dQ++cwHQ2aUn6Txycv3l70yR7UIvstzOr5shigGMsvZpF47L+rvQIggThopzFW83B3bcUmoSW6uQEgih02Juin0vo4bxvJIlRkYRb045zb99YLaYjozrVHZ8d+kLtNLu6XCIhzveAsZHuiCwT63WaodzRM="
+        #GPG_PASSPHRASE
+        - secure: "MZCenp9Ya27AvTCmrDJif8gBnDI6hOsyFEgb1HEKTACQtWvgOTCUfaoPxuCMGjTEgV1Ge/wKL07YkzEfQ4B5Ym1ml4Atyl5unRDjh+VCOmToheSKnFGjRiffGQfNqhOEWyTuOYJmEiiAwtzG4eCkWWb5Huu4WkGGdJG5l5CnDrNSE94TgPB2Pdf9MXtCLij/yVZ6fjmavtY5haxsH7HurappDDN+sgwpe3SZnAUbDcphseSHUkCvZ4oN1wtcG21fneLD4K7qPTLnRMHLsY9J/9YCP26P9Tw1ULzX4okWeVOara2xaPBte6Ae0mk/Gk28yLxJOEIoVLGQiPOywPnqbpe/E+SZMU4wLf1NmRm/TgFvmjTK73D1JD7AvMYxOHqHIUM5PfWxY+1jhVG97Y8XAxpnKV/xtH37D4LErRvoPmg2t1ZxDEjtslGIfNSyOm5HQzMfPoxkXZMV3im4Gt/wTTQHtnyzxs/WueCgwwNBbdXuTaQMqld95w4kLNfqUhtJqFBqaHH+yZvSjA3vPyGxW5ZhKfnbc5C6q4Jhh57ep1Xjv+C6WtY9hhYyg9+4Fv1IVM/38ii9OrvH+Hr+P8dE7oV8MgK1YsG8CfpqyvwrBwdE1d0ZyAyBH4VfV8njuGMajZwDSMCBxIXCnplV0mHqj/ZeTEw0zX5+/tZ5dJ5a9FQ="
 
 #if timeout occurs, add travis_wait as in example below:
 #script: travis_wait mvn clean jacoco:prepare-agent install jacoco:report site
 
 #add: -Denvironment=test to activate CI profile to publish into gh-pages
-script: mvn clean jacoco:prepare-agent install jacoco:report coveralls:report site -Denvironment=test
+script: mvn clean jacoco:prepare-agent install jacoco:report coveralls:report site -Denvironment=test -P !build-extras
+
+cache:
+  directories:
+    - ~/.m2/repository
+
+after_success:
+  - ./cd/before-deploy.sh
+  - ./cd/deploy.sh
