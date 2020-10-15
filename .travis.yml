@@ -16,15 +16,33 @@ env:
         #GPG_PASSPHRASE
         - secure: "YVuTQt2iBNDS0vUZgg40uoVOXsmMsmtv312UTFKhWaYShOrTs3ETb6rzY5UbJ9dNLzoV98VtuucLyiGkHQ2NcyN4BRMArPHc/t8G7loSRiEN7Uu8PX2LJ/B7A3up6dYa2eIu4Zmks/dpDFK4hMuL56xxk8nnGz2eCnODQAeKpBuyyYBGJi2nholiZcA9mi/noF9q89Xl9qoIpFcUjWFsftYjAytq8Ru2yad+nzBjnCFKiy0WykFiRle3Q7z1WSVlfDFClsirwnwDYVgZNIqZ3/n/zhGVQe0GAQ6tDg4VeVC2XSv1X2M3AyOSqwBaYbUAdSgUR7Sw9AVrBo24FmJe8iDcZNlNg7vuifoKz+PR7qt1rwEZHWmDWsOHW6+DxMKDiS11mN+Y3Tl/iHiFMVnukgUFqk/TxLudpR1kQ2grNDBEy5aDxXTbMCu+cLlW6Wk94G3OKWIXICuusrh6kVUao4mfnz9wQ09uLTK2HIolmlseioOlRJBzHVLeESKn63+sw29q8Gr9pH5NQZqslTHqdkTpTzCwR8TW3Syq9iyv7IrLhkaxVXe4XygvYyIpOLvrPvvSDArj+posEVypa4hg5m8PTSFCTyKf2EcvcZ+uc/36KtIxh+eUTqQDMp9xrALuhSMBK1aLb2zpBbyekaAvwrF+I6U1oUwJnJpxNicPFhg="
 
+addons:
+  sonarcloud:
+    organization: "albertoirurueta-github"
+    token:
+      secure: "Fm70et1Mu+4e+5zyPisJ52Fy0q7UF7Ea+KdjSnAY+rpmNqS3bbNkc3sxX4UP2Hr4cDkRbYZ2hCLj8u+RddOq95MbQEl5FDRPuDCeX3qUxyaE9hhvx58TiG2gN6GjQWyGFfOxbWirXWmCvMASX+4FDzDC1uq6LU/Eu9aJm/F91iKgP7CHADsMfeQ75AZfb21pvfyXfNkQpL82vQ205SyfWu3vzmnqBheBPmrZObCj3xOBHWzgxGoRq1a2PYdTvqoOpG1VgurmQPqVSvLJr4BwSUDUKJGRMGTB5JuksJluj+nhf6flLzajzhDajFueeVlLgx53vd/1mEueaK1VkzM2hg1hdR3YS9FkPq59Of1bevEHxoJkS9CnZPvkx0u3XDuY1nabJg2I3JAX/u8NjCD3MAGkg0o+SThzPOR5XcvNEKTq6IsPH0cOH6m1ldgVn7o1OUwrEqrhvJj6U2dOMU58vRtIcNfuedJurM9MdgXF2cPtTvu64vZBSHmFh/z1aOBhn4SX7dutg8J86/iTV6mlUmd8TVOptLxjsQuEq3qTFEyrWWObmciUFpDrxc1eKe3B15urEdCC4XbU2FDNGLRLcHZMlDNbO7OlavEqldhQANMXGU9yPQ+DTm5fvjuTCtDb83TWOXcy/uDqbjwWe/VDlvK6kMymyFM+GGtr9vYgxEk="
+
 #if timeout occurs, add travis_wait as in example below:
 #script: travis_wait mvn clean jacoco:prepare-agent install jacoco:report site
 
 #add: -Denvironment=test to activate CI profile to publish into gh-pages
-script: mvn clean jacoco:prepare-agent install jacoco:report coveralls:report site -Denvironment=test -P !build-extras
+script:
+  - mvn clean jacoco:prepare-agent install jacoco:report --quiet -Denvironment=test -P !build-extras
+  - mvn site -Djacoco.skip -DskipTests --quiet -P !build-extras
+  - sonar-scanner
 
 cache:
   directories:
     - ~/.m2/repository
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_OAUTH_TOKEN
+  keep-history: true
+  local-dir: ./target/site
+  on:
+    branch: master
 
 after_success:
   - ./cd/before-deploy.sh
