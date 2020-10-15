@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1076f441-a28f-40f3-b505-edb288fcb07d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +136,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -145,6 +145,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunManager" selected="JUnit.ConfigurationFactoryTest">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -243,6 +248,17 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -413,7 +429,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1462573053498</updated>
-      <workItem from="1602790769895" duration="1522000" />
+      <workItem from="1602790769895" duration="1880000" />
     </task>
     <servers />
   </component>
@@ -446,22 +462,22 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1494" height="250" key="GridCell.Tab.0.bottom" timestamp="1602790358172">
+    <state width="1494" height="250" key="GridCell.Tab.0.bottom" timestamp="1602795421270">
       <screen x="0" y="23" width="1536" height="937" />
     </state>
-    <state width="1494" height="250" key="GridCell.Tab.0.bottom/0.23.1536.937@0.23.1536.937" timestamp="1602790358172" />
-    <state width="1494" height="250" key="GridCell.Tab.0.center" timestamp="1602790358171">
+    <state width="1494" height="250" key="GridCell.Tab.0.bottom/0.23.1536.937@0.23.1536.937" timestamp="1602795421270" />
+    <state width="1494" height="250" key="GridCell.Tab.0.center" timestamp="1602795421269">
       <screen x="0" y="23" width="1536" height="937" />
     </state>
-    <state width="1494" height="250" key="GridCell.Tab.0.center/0.23.1536.937@0.23.1536.937" timestamp="1602790358171" />
-    <state width="1494" height="250" key="GridCell.Tab.0.left" timestamp="1602790358171">
+    <state width="1494" height="250" key="GridCell.Tab.0.center/0.23.1536.937@0.23.1536.937" timestamp="1602795421269" />
+    <state width="1494" height="250" key="GridCell.Tab.0.left" timestamp="1602795421269">
       <screen x="0" y="23" width="1536" height="937" />
     </state>
-    <state width="1494" height="250" key="GridCell.Tab.0.left/0.23.1536.937@0.23.1536.937" timestamp="1602790358171" />
-    <state width="1494" height="250" key="GridCell.Tab.0.right" timestamp="1602790358171">
+    <state width="1494" height="250" key="GridCell.Tab.0.left/0.23.1536.937@0.23.1536.937" timestamp="1602795421269" />
+    <state width="1494" height="250" key="GridCell.Tab.0.right" timestamp="1602795421270">
       <screen x="0" y="23" width="1536" height="937" />
     </state>
-    <state width="1494" height="250" key="GridCell.Tab.0.right/0.23.1536.937@0.23.1536.937" timestamp="1602790358171" />
+    <state width="1494" height="250" key="GridCell.Tab.0.right/0.23.1536.937@0.23.1536.937" timestamp="1602795421270" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
