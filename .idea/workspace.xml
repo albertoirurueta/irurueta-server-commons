@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1076f441-a28f-40f3-b505-edb288fcb07d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/sonar-project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cd/before-deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/cd/before-deploy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cd/codesigning.asc.enc" beforeDir="false" afterPath="$PROJECT_DIR$/cd/codesigning.asc.enc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -418,7 +420,7 @@
       <option name="presentableId" value="Default" />
       <updated>1462573053498</updated>
       <workItem from="1602790769895" duration="1880000" />
-      <workItem from="1602796005171" duration="3000" />
+      <workItem from="1602796005171" duration="621000" />
     </task>
     <servers />
   </component>
