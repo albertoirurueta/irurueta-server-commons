@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BaseConfigurationFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.irurueta:irurueta-server-commons</a> &gt; <a href="index.source.html" class="el_package">com.irurueta.server.commons.configuration</a> &gt; <span class="el_source">BaseConfigurationFactory.java</span></div><h1>BaseConfigurationFactory.java</h1><pre class="source lang-java linenums">/**
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BaseConfigurationFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.irurueta:irurueta-server-commons</a> &gt; <a href="index.source.html" class="el_package">com.irurueta.server.commons.configuration</a> &gt; <span class="el_source">BaseConfigurationFactory.java</span></div><h1>BaseConfigurationFactory.java</h1><pre class="source lang-java linenums">/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -20,77 +20,84 @@ import java.util.Properties;
 /**
  * Defines the interface of a configuration factory to obtain a given
  * configuration implementation based on provided properties.
+ *
  * @param &lt;E&gt; a Configuration subclass.
  */
-@SuppressWarnings(&quot;WeakerAccess&quot;)
 <span class="fc" id="L26">public abstract class BaseConfigurationFactory&lt;E extends Configuration&gt; {</span>
 
     /**
      * Reference to configuration to be created.
      */
-    protected volatile E mConfiguration;
+    protected E mConfiguration;
 
     /**
-     * Configures based on default configuration and returns a Configuration 
+     * Configures based on default configuration and returns a Configuration
      * instance. If a configuration already exists, then it is returned and
      * configuration process is skipped.
+     *
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
     public E configure() throws ConfigurationException {
-<span class="fc" id="L41">        return configure(null);</span>
+<span class="fc" id="L42">        return configure(null);</span>
     }
 
     /**
      * Configures based on provided properties and returns a Configuration
      * instance. If a configuration already exists, then it is returned and
      * configuration process is skipped.
+     *
      * @param properties properties to use for configuration.
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
-    public abstract E configure(Properties properties)
+    public abstract E configure(final Properties properties)
             throws ConfigurationException;
 
     /**
      * Resets configuration by removing any existing configuration if already
      * defined.
+     *
      * @return returns this instance so that this method can be chained.
      * @throws ConfigurationException if something fails during configuration
-     * reset.
+     *                                reset.
      */
+    @SuppressWarnings(&quot;RedundantThrows&quot;)
     public synchronized BaseConfigurationFactory&lt;E&gt; reset()
             throws ConfigurationException {
-<span class="fc" id="L64">        mConfiguration = null;</span>
-<span class="fc" id="L65">        return this;</span>
+<span class="fc" id="L68">        mConfiguration = null;</span>
+<span class="fc" id="L69">        return this;</span>
     }
 
     /**
      * Resets configuration and configures again using default configuration.
+     *
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
     public final E reconfigure() throws ConfigurationException {
-<span class="fc" id="L74">        return reset().configure();</span>
+<span class="fc" id="L79">        return reset().configure();</span>
     }
 
     /**
      * Resets configuration and configures again based on provided properties.
+     *
      * @param properties properties to use for configuration.
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
-    public final E reconfigure(Properties properties) throws ConfigurationException {
-<span class="fc" id="L84">        return reset().configure(properties);</span>
+    public final E reconfigure(final Properties properties) throws ConfigurationException {
+<span class="fc" id="L90">        return reset().configure(properties);</span>
     }
 
     /**
      * Returns current configuration if it is already defined, otherwise null
      * is returned.
+     *
      * @return current configuration.
      */
     public final synchronized E getConfiguration() {
-<span class="fc" id="L93">        return mConfiguration;</span>
+<span class="fc" id="L100">        return mConfiguration;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
