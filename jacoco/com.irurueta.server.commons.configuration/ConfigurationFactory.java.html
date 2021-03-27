@@ -41,7 +41,7 @@ public class ConfigurationFactory extends
      * Collection of configuration factories registered to be configured
      * when configuring from some Properties.
      */
-    private final Set&lt;BaseConfigurationFactory&lt;? extends Configuration&gt;&gt; mRegisteredFactories;
+    private final Set&lt;BaseConfigurationFactory&lt;Configuration&gt;&gt; mRegisteredFactories;
 
     /**
      * Private constructor of this class.
@@ -95,7 +95,7 @@ public class ConfigurationFactory extends
      * @param factory factory to be registered.
      * @return true if factory was registered, false otherwise.
      */
-    public boolean register(final BaseConfigurationFactory&lt;? extends Configuration&gt; factory) {
+    public boolean register(final BaseConfigurationFactory&lt;Configuration&gt; factory) {
 <span class="pc bpc" id="L99" title="2 of 4 branches missed.">        return factory != null &amp;&amp; mRegisteredFactories.add(factory);</span>
     }
 
@@ -106,7 +106,7 @@ public class ConfigurationFactory extends
      * @param factory factory to be registered.
      * @return true if factory was unregistered, false otherwise.
      */
-    public boolean unregister(final BaseConfigurationFactory&lt;? extends Configuration&gt; factory) {
+    public boolean unregister(final BaseConfigurationFactory&lt;Configuration&gt; factory) {
 <span class="pc bpc" id="L110" title="2 of 4 branches missed.">        return factory != null &amp;&amp; mRegisteredFactories.remove(factory);</span>
     }
 
@@ -115,7 +115,7 @@ public class ConfigurationFactory extends
      *
      * @return registered factories.
      */
-    public Set&lt;BaseConfigurationFactory&lt;? extends Configuration&gt;&gt; getRegisteredFactories() {
+    public Set&lt;BaseConfigurationFactory&lt;Configuration&gt;&gt; getRegisteredFactories() {
 <span class="fc" id="L119">        return Collections.unmodifiableSet(mRegisteredFactories);</span>
     }
 }
