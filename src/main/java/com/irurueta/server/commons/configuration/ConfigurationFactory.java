@@ -41,7 +41,7 @@ public class ConfigurationFactory extends
      * Collection of configuration factories registered to be configured
      * when configuring from some Properties.
      */
-    private final Set<BaseConfigurationFactory<? extends Configuration>> mRegisteredFactories;
+    private final Set<BaseConfigurationFactory<Configuration>> mRegisteredFactories;
 
     /**
      * Private constructor of this class.
@@ -95,7 +95,7 @@ public class ConfigurationFactory extends
      * @param factory factory to be registered.
      * @return true if factory was registered, false otherwise.
      */
-    public boolean register(final BaseConfigurationFactory<? extends Configuration> factory) {
+    public boolean register(final BaseConfigurationFactory<Configuration> factory) {
         return factory != null && mRegisteredFactories.add(factory);
     }
 
@@ -106,7 +106,7 @@ public class ConfigurationFactory extends
      * @param factory factory to be registered.
      * @return true if factory was unregistered, false otherwise.
      */
-    public boolean unregister(final BaseConfigurationFactory<? extends Configuration> factory) {
+    public boolean unregister(final BaseConfigurationFactory<Configuration> factory) {
         return factory != null && mRegisteredFactories.remove(factory);
     }
 
@@ -115,7 +115,7 @@ public class ConfigurationFactory extends
      *
      * @return registered factories.
      */
-    public Set<BaseConfigurationFactory<? extends Configuration>> getRegisteredFactories() {
+    public Set<BaseConfigurationFactory<Configuration>> getRegisteredFactories() {
         return Collections.unmodifiableSet(mRegisteredFactories);
     }
 }
