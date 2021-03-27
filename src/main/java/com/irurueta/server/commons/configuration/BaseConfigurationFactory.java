@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,20 +20,21 @@ import java.util.Properties;
 /**
  * Defines the interface of a configuration factory to obtain a given
  * configuration implementation based on provided properties.
+ *
  * @param <E> a Configuration subclass.
  */
-@SuppressWarnings("WeakerAccess")
 public abstract class BaseConfigurationFactory<E extends Configuration> {
 
     /**
      * Reference to configuration to be created.
      */
-    protected volatile E mConfiguration;
+    protected E mConfiguration;
 
     /**
-     * Configures based on default configuration and returns a Configuration 
+     * Configures based on default configuration and returns a Configuration
      * instance. If a configuration already exists, then it is returned and
      * configuration process is skipped.
+     *
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
@@ -45,20 +46,23 @@ public abstract class BaseConfigurationFactory<E extends Configuration> {
      * Configures based on provided properties and returns a Configuration
      * instance. If a configuration already exists, then it is returned and
      * configuration process is skipped.
+     *
      * @param properties properties to use for configuration.
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
-    public abstract E configure(Properties properties)
+    public abstract E configure(final Properties properties)
             throws ConfigurationException;
 
     /**
      * Resets configuration by removing any existing configuration if already
      * defined.
+     *
      * @return returns this instance so that this method can be chained.
      * @throws ConfigurationException if something fails during configuration
-     * reset.
+     *                                reset.
      */
+    @SuppressWarnings("RedundantThrows")
     public synchronized BaseConfigurationFactory<E> reset()
             throws ConfigurationException {
         mConfiguration = null;
@@ -67,6 +71,7 @@ public abstract class BaseConfigurationFactory<E extends Configuration> {
 
     /**
      * Resets configuration and configures again using default configuration.
+     *
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
@@ -76,17 +81,19 @@ public abstract class BaseConfigurationFactory<E extends Configuration> {
 
     /**
      * Resets configuration and configures again based on provided properties.
+     *
      * @param properties properties to use for configuration.
      * @return a configuration instance.
      * @throws ConfigurationException if something fails during configuration.
      */
-    public final E reconfigure(Properties properties) throws ConfigurationException {
+    public final E reconfigure(final Properties properties) throws ConfigurationException {
         return reset().configure(properties);
     }
 
     /**
      * Returns current configuration if it is already defined, otherwise null
      * is returned.
+     *
      * @return current configuration.
      */
     public final synchronized E getConfiguration() {

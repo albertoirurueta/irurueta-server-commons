@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,6 @@ import java.util.Set;
 /**
  * Base factory class to obtain and configure all modules of the application.
  */
-@SuppressWarnings("WeakerAccess")
 public class ConfigurationFactory extends
         BaseConfigurationFactory<Configuration> {
 
@@ -42,7 +41,7 @@ public class ConfigurationFactory extends
      * Collection of configuration factories registered to be configured
      * when configuring from some Properties.
      */
-    private Set<BaseConfigurationFactory> mRegisteredFactories;
+    private final Set<BaseConfigurationFactory<? extends Configuration>> mRegisteredFactories;
 
     /**
      * Private constructor of this class.
@@ -50,9 +49,10 @@ public class ConfigurationFactory extends
     private ConfigurationFactory() {
         mRegisteredFactories = new HashSet<>();
     }
-    
+
     /**
      * Factory method to return or create singleton instance of this class.
+     *
      * @return singleton instance of this class.
      */
     public static synchronized ConfigurationFactory getInstance() {
@@ -61,56 +61,61 @@ public class ConfigurationFactory extends
         }
         return mSingleton;
     }
-    
+
     /**
-     * Configures. 
+     * Configures.
+     *
      * @param properties properties to be read during configuration.
      * @return a configuration instance.
      * @throws ConfigurationException if configuration fails.
      */
     @Override
-    public Configuration configure(Properties properties) 
+    public Configuration configure(final Properties properties)
             throws ConfigurationException {
         mProperties = properties;
-        //configure all registered configuration factories
-        for (BaseConfigurationFactory factory : mRegisteredFactories) {
+        // configure all registered configuration factories
+        for (final BaseConfigurationFactory<?> factory : mRegisteredFactories) {
             factory.configure(properties);
         }
         return null;
-    }    
-    
+    }
+
     /**
      * Obtains properties used during configuration.
+     *
      * @return properties used during configuration.
      */
     public Properties getProperties() {
         return mProperties;
     }
-    
+
     /**
      * Registers a configuration factory for configuration from some Properties.
+     *
      * @param factory factory to be registered.
      * @return true if factory was registered, false otherwise.
      */
-    public boolean register(BaseConfigurationFactory factory) {
+    public boolean register(final BaseConfigurationFactory<? extends Configuration> factory) {
         return factory != null && mRegisteredFactories.add(factory);
     }
-    
+
     /**
-     * Unregisters a configuration factory from configuration from some 
+     * Unregisters a configuration factory from configuration from some
      * Properties.
+     *
      * @param factory factory to be registered.
      * @return true if factory was unregistered, false otherwise.
      */
-    public boolean unregister(BaseConfigurationFactory factory) {
+    public boolean unregister(final BaseConfigurationFactory<? extends Configuration> factory) {
         return factory != null && mRegisteredFactories.remove(factory);
     }
 
     /**
      * Returns non modifiable set containing registered factories.
+     *
      * @return registered factories.
      */
-    public Set<BaseConfigurationFactory> getRegisteredFactories() {
+    public Set<BaseConfigurationFactory<? extends Configuration>> getRegisteredFactories() {
         return Collections.unmodifiableSet(mRegisteredFactories);
     }
 }

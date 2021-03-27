@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,72 +15,53 @@
  */
 package com.irurueta.server.commons.configuration;
 
+import org.junit.Test;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.Set;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PropertiesFileLocatorTest {
-    
-    public PropertiesFileLocatorTest() {}
-    
-    @BeforeClass
-    public static void setUpClass() {}
-    
-    @AfterClass
-    public static void tearDownClass() {}
-    
-    @Before
-    public void setUp() {}
-    
-    @After
-    public void tearDown() {}
-    
+
     @Test
-    public void testConstructor(){
-        
+    public void testConstructor() {
+
         PropertiesFileLocator<PropertiesFileLocatorTest> locator =
-                new PropertiesFileLocator("file");
+                new PropertiesFileLocator<>("file");
         assertNotNull(locator);
-        
-        locator = new PropertiesFileLocator(this);
+
+        locator = new PropertiesFileLocator<>(this);
         assertNotNull(locator);
-        
-        locator = new PropertiesFileLocator(null, this);
+
+        locator = new PropertiesFileLocator<>(null, this);
         assertNotNull(locator);
-        
-        locator = new PropertiesFileLocator(this, "file");
+
+        locator = new PropertiesFileLocator<>(this, "file");
         assertNotNull(locator);
-        
-        locator = new PropertiesFileLocator(null, this, "file");
+
+        locator = new PropertiesFileLocator<>(null, this, "file");
         assertNotNull(locator);
     }
-    
+
     @Test
-    public void testLocate() throws IOException{
+    public void testLocate() throws IOException {
         PropertiesFileLocator<PropertiesFileLocatorTest> locator =
-                new PropertiesFileLocator(this);
-        
+                new PropertiesFileLocator<>(this);
+
         //default properties is not found
         Properties props = locator.locate();
         assertTrue(props.isEmpty());
-        
-        locator = new PropertiesFileLocator(this, "test.properties");
-        props = locator.locate();        
+
+        locator = new PropertiesFileLocator<>(this, "test.properties");
+        props = locator.locate();
         assertFalse(props.isEmpty());
         assertTrue(props.containsKey("key"));
 
@@ -90,7 +71,7 @@ public class PropertiesFileLocatorTest {
         assertTrue(props.containsKey("key"));
     }
 
-    private class CustomServletContext implements ServletContext{
+    private static class CustomServletContext implements ServletContext {
 
         public String getContextPath() {
             return "context";
@@ -112,11 +93,11 @@ public class PropertiesFileLocatorTest {
             return null;
         }
 
-        public Set getResourcePaths(String s) {
+        public Set<?> getResourcePaths(String s) {
             return null;
         }
 
-        public URL getResource(String s) throws MalformedURLException {
+        public URL getResource(String s) {
             return null;
         }
 
@@ -132,15 +113,15 @@ public class PropertiesFileLocatorTest {
             return null;
         }
 
-        public Servlet getServlet(String s) throws ServletException {
+        public Servlet getServlet(String s) {
             return null;
         }
 
-        public Enumeration getServlets() {
+        public Enumeration<?> getServlets() {
             return null;
         }
 
-        public Enumeration getServletNames() {
+        public Enumeration<?> getServletNames() {
             return null;
         }
 
@@ -168,7 +149,7 @@ public class PropertiesFileLocatorTest {
             return null;
         }
 
-        public Enumeration getInitParameterNames() {
+        public Enumeration<?> getInitParameterNames() {
             return null;
         }
 
@@ -176,7 +157,7 @@ public class PropertiesFileLocatorTest {
             return null;
         }
 
-        public Enumeration getAttributeNames() {
+        public Enumeration<?> getAttributeNames() {
             return null;
         }
 

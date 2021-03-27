@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,6 +27,7 @@ import javax.servlet.ServletContext;
 /**
  * This class searches for a properties file in the root of the classpath of
  * the deployed war or at the server user home directory.
+ *
  * @param <T> type of object to be used to locate a resource.
  */
 public class PropertiesFileLocator<T> {
@@ -45,26 +46,27 @@ public class PropertiesFileLocator<T> {
     /**
      * Reference to servlet context where application is running.
      */
-    private ServletContext mContext;
+    private final ServletContext mContext;
 
     /**
      * Reference to an object where resources can be looked in its library jar
      * or war file.
      */
     //source object. This is used to search a resource on
-    //a given jar o war where the class belongs to
-    private T mSource;
+    //a given jar or war where the class belongs to
+    private final T mSource;
 
     /**
      * Properties file name containing configuration.
      */
-    private String mFileName;
+    private final String mFileName;
 
     /**
      * Constructor.
+     *
      * @param fileName properties file name containing configuration.
      */
-    public PropertiesFileLocator(String fileName) {
+    public PropertiesFileLocator(final String fileName) {
         mContext = null;
         mSource = null;
         mFileName = fileName;
@@ -72,10 +74,11 @@ public class PropertiesFileLocator<T> {
 
     /**
      * Constructor.
+     *
      * @param source reference to an object where resources can be loaded in its
-     * library jar or war file.
+     *               library jar or war file.
      */
-    public PropertiesFileLocator(T source) {
+    public PropertiesFileLocator(final T source) {
         mContext = null;
         mSource = source;
         mFileName = DEFAULT_FILE_NAME;
@@ -83,11 +86,12 @@ public class PropertiesFileLocator<T> {
 
     /**
      * Constructor.
+     *
      * @param context reference to servlet context where application is running.
-     * @param source reference to an object where resources can be loaded in its
-     * library jar or war file.
+     * @param source  reference to an object where resources can be loaded in its
+     *                library jar or war file.
      */
-    public PropertiesFileLocator(ServletContext context, T source) {
+    public PropertiesFileLocator(final ServletContext context, final T source) {
         mContext = context;
         mSource = source;
         mFileName = DEFAULT_FILE_NAME;
@@ -95,11 +99,12 @@ public class PropertiesFileLocator<T> {
 
     /**
      * Constructor.
-     * @param source reference to an object where resources can be loaded in its
-     * library jar or war file.
+     *
+     * @param source   reference to an object where resources can be loaded in its
+     *                 library jar or war file.
      * @param fileName properties file name containing configuration.
      */
-    public PropertiesFileLocator(T source, String fileName) {
+    public PropertiesFileLocator(final T source, final String fileName) {
         mContext = null;
         mSource = source;
         mFileName = fileName;
@@ -107,12 +112,13 @@ public class PropertiesFileLocator<T> {
 
     /**
      * Constructor.
-     * @param context reference to servlet context where application is running.
-     * @param source reference to an object where resources can be loaded in its
-     * library jar or war file.
+     *
+     * @param context  reference to servlet context where application is running.
+     * @param source   reference to an object where resources can be loaded in its
+     *                 library jar or war file.
      * @param fileName properties file name containing configuration.
      */
-    public PropertiesFileLocator(ServletContext context, T source, String fileName) {
+    public PropertiesFileLocator(final ServletContext context, final T source, final String fileName) {
         mContext = context;
         mSource = source;
         mFileName = fileName;
@@ -122,13 +128,14 @@ public class PropertiesFileLocator<T> {
      * Locates properties configuration based on provided parameters.
      * First properties are searched based on applicaiton context name, then
      * on user home and finally within a war or jar file.
+     *
      * @return properties configuration.
      * @throws IOException if an I/O error occurs.
      */
     public Properties locate() throws IOException {
-        //properties file was found
-        Properties props = new Properties();
-        InputStream stream = locateResource();
+        // properties file was found
+        final Properties props = new Properties();
+        final InputStream stream = locateResource();
         if (stream != null) {
             props.load(stream);
         }
@@ -138,27 +145,28 @@ public class PropertiesFileLocator<T> {
     /**
      * Internal method to search for configuration file and return its
      * corresponding input stream.
+     *
      * @return input stream corresponding to configuration file.
      * @throws IOException if an I/O error occurs.
      */
     private InputStream locateResource() throws IOException {
-        //get server user home location
+        // get server user home location
         String home = System.getProperty("user.home");
-        //for windows replace \ with /
-        home = home.replaceAll("\\\\", "/");
+        // for windows replace \ with /
+        home = home.replace("\\", "/");
 
         LOGGER.log(Level.INFO, "User home folder: {0}", home);
 
         if (mContext != null) {
-            //Attempt to retrieve first properties files in home path with
-            //same name as application context
-            String contextPath = mContext.getContextPath();
+            // Attempt to retrieve first properties files in home path with
+            // same name as application context
+            final String contextPath = mContext.getContextPath();
             String path;
             if (!contextPath.isEmpty()) {
                 path = "~" + contextPath + ".properties";
-                path = path.replaceAll("~", home);
+                path = path.replace("~", home);
 
-                File f = new File(path);
+                final File f = new File(path);
                 if (f.exists()) {
                     LOGGER.log(Level.INFO, "Properties file: {0}", path);
                     return new FileInputStream(f);
@@ -166,9 +174,9 @@ public class PropertiesFileLocator<T> {
             }
         }
 
-        //if not found, then attempt to find file at user home
+        // if not found, then attempt to find file at user home
         if (mFileName != null) {
-            File f = new File(home, mFileName);
+            final File f = new File(home, mFileName);
             if (f.exists()) {
                 LOGGER.log(Level.INFO, "Properties file: {0}", f.getPath());
                 return new FileInputStream(f);
@@ -177,7 +185,7 @@ public class PropertiesFileLocator<T> {
 
         //if no file is found, then attempt to search it within war file
         InputStream stream = null;
-        if (mSource != null) {
+        if (mSource != null && mFileName != null) {
             stream = mSource.getClass().getResourceAsStream(mFileName);
 
             if (stream == null) {

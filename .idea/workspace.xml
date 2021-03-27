@@ -6,7 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="1076f441-a28f-40f3-b505-edb288fcb07d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/BuildInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/BuildInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/LockedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/LockedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/ServerCommonsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/ServerCommonsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/BaseConfigurationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/BaseConfigurationFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/ConfigurationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/ConfigurationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/ConfigurationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/ConfigurationFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/PropertiesFileLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/PropertiesFileLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/configuration/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irurueta/server/commons/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/BuildInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/BuildInfoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/LockedExceptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/LockedExceptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/ServerCommonsExceptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/ServerCommonsExceptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/configuration/ConfigurationExceptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/configuration/ConfigurationExceptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/configuration/ConfigurationFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/configuration/ConfigurationFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/configuration/PropertiesFileLocatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/irurueta/server/commons/configuration/PropertiesFileLocatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,13 +40,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectId" id="1ivaxtKlBZuUB1pk9sdmU5CvJQD" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -252,13 +260,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -432,6 +442,7 @@
       <workItem from="1602790769895" duration="1880000" />
       <workItem from="1602796005171" duration="955000" />
       <workItem from="1602942297812" duration="1966000" />
+      <workItem from="1616848257404" duration="1608000" />
     </task>
     <servers />
   </component>
@@ -462,24 +473,6 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1494" height="250" key="GridCell.Tab.0.bottom" timestamp="1602795421270">
-      <screen x="0" y="23" width="1536" height="937" />
-    </state>
-    <state width="1494" height="250" key="GridCell.Tab.0.bottom/0.23.1536.937@0.23.1536.937" timestamp="1602795421270" />
-    <state width="1494" height="250" key="GridCell.Tab.0.center" timestamp="1602795421269">
-      <screen x="0" y="23" width="1536" height="937" />
-    </state>
-    <state width="1494" height="250" key="GridCell.Tab.0.center/0.23.1536.937@0.23.1536.937" timestamp="1602795421269" />
-    <state width="1494" height="250" key="GridCell.Tab.0.left" timestamp="1602795421269">
-      <screen x="0" y="23" width="1536" height="937" />
-    </state>
-    <state width="1494" height="250" key="GridCell.Tab.0.left/0.23.1536.937@0.23.1536.937" timestamp="1602795421269" />
-    <state width="1494" height="250" key="GridCell.Tab.0.right" timestamp="1602795421270">
-      <screen x="0" y="23" width="1536" height="937" />
-    </state>
-    <state width="1494" height="250" key="GridCell.Tab.0.right/0.23.1536.937@0.23.1536.937" timestamp="1602795421270" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

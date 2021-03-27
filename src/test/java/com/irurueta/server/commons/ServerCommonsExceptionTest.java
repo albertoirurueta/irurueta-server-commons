@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,47 +15,24 @@
  */
 package com.irurueta.server.commons;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertNotNull;
 
 public class ServerCommonsExceptionTest {
-    
-    public ServerCommonsExceptionTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-    
+
     @Test
-    public void testConstructor(){
-        ServerCommonsException ex;
-        assertNotNull(ex = new ServerCommonsException());
-        
-        ex = null;
-        assertNotNull(ex = new ServerCommonsException("message"));
-        
-        ex = null;
-        assertNotNull(ex = new ServerCommonsException(new Exception()));
-        
-        ex = null;
-        assertNotNull(ex = new ServerCommonsException("message", 
-                new Exception()));        
-    }    
+    public void testConstructor() {
+        ServerCommonsException ex = new ServerCommonsException();
+        assertNotNull(ex);
+
+        ex = new ServerCommonsException("message");
+        assertNotNull(ex);
+
+        ex = new ServerCommonsException(new Exception());
+        assertNotNull(ex);
+
+        ex = new ServerCommonsException("message", new Exception());
+        assertNotNull(ex);
+    }
 }

@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,18 +20,20 @@ import java.util.Properties;
 /**
  * Interface defining a Configuration instance.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings("unused")
 public interface Configuration {
     /**
      * Reads configuration from properties.
+     *
      * @param properties properties containing key/value configuration.
      * @throws ConfigurationException if properties contains invalid values.
      */
-    void fromProperties(Properties properties)
+    void fromProperties(final Properties properties)
             throws ConfigurationException;
 
     /**
      * Converts a configuration instance into properties.
+     *
      * @return properties.
      */
     Properties toProperties();

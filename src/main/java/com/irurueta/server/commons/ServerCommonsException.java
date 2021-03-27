@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,6 @@ package com.irurueta.server.commons;
  * Base exception class for this package.
  * All exceptions in this package extend from this one.
  */
-@SuppressWarnings("WeakerAccess")
 public class ServerCommonsException extends Exception {
     /**
      * Constructor.
@@ -30,26 +29,29 @@ public class ServerCommonsException extends Exception {
 
     /**
      * Constructor with String containing message.
+     *
      * @param message Message indicating the cause of the exception.
      */
-    public ServerCommonsException(String message) {
+    public ServerCommonsException(final String message) {
         super(message);
     }
 
     /**
      * Constructor with message and cause.
+     *
      * @param message Message describing the cause of the exception.
-     * @param cause Instance containing the cause of the exception.
+     * @param cause   Instance containing the cause of the exception.
      */
-    public ServerCommonsException(String message, Throwable cause) {
+    public ServerCommonsException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
     /**
      * Constructor with cause.
+     *
      * @param cause Instance containing the cause of the exception.
      */
-    public ServerCommonsException(Throwable cause) {
+    public ServerCommonsException(final Throwable cause) {
         super(cause);
-    }                    
+    }
 }

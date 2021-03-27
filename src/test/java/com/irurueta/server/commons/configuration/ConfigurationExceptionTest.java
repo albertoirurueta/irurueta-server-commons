@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 Alberto Irurueta Carro (alberto@irurueta.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,42 +15,24 @@
  */
 package com.irurueta.server.commons.configuration;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertNotNull;
 
 public class ConfigurationExceptionTest {
-    
-    public ConfigurationExceptionTest() {}
-    
-    @BeforeClass
-    public static void setUpClass() {}
-    
-    @AfterClass
-    public static void tearDownClass() {}
-    
-    @Before
-    public void setUp() {}
-    
-    @After
-    public void tearDown() {}
-    
+
     @Test
-    public void testConstructor(){
-        ConfigurationException ex;
-        assertNotNull(ex = new ConfigurationException());
-        
-        ex = null;
-        assertNotNull(ex = new ConfigurationException("message"));
-        
-        ex = null;
-        assertNotNull(ex = new ConfigurationException(new Exception()));
-        
-        ex = null;
-        assertNotNull(ex = new ConfigurationException("message", 
-                new Exception()));        
+    public void testConstructor() {
+        ConfigurationException ex = new ConfigurationException();
+        assertNotNull(ex);
+
+        ex = new ConfigurationException("message");
+        assertNotNull(ex);
+
+        ex = new ConfigurationException(new Exception());
+        assertNotNull(ex);
+
+        ex = new ConfigurationException("message", new Exception());
+        assertNotNull(ex);
     }
 }
