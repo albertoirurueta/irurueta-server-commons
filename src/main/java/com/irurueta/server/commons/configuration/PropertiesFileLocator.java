@@ -126,7 +126,7 @@ public class PropertiesFileLocator<T> {
 
     /**
      * Locates properties configuration based on provided parameters.
-     * First properties are searched based on applicaiton context name, then
+     * First properties are searched based on application context name, then
      * on user home and finally within a war or jar file.
      *
      * @return properties configuration.
