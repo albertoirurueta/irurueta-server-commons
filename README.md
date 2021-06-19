@@ -1,7 +1,7 @@
 # irurueta-server-commons
 Common utility classes for JEE servers
 
-[![Build Status](https://travis-ci.org/albertoirurueta/irurueta-server-commons.svg?branch=master)](https://travis-ci.org/albertoirurueta/irurueta-server-commons)
+[![Build Status](https://travis-ci.com/albertoirurueta/irurueta-server-commons.svg?branch=master)](https://travis-ci.com/albertoirurueta/irurueta-server-commons)
 
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=albertoirurueta_irurueta-server-commons&metric=bugs)](https://sonarcloud.io/dashboard?id=albertoirurueta_irurueta-server-commons)
